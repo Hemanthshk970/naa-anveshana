@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naa anveshana Blog - Exploring the Unseen</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#7c3aed',
+                        accent: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Additional Custom Styles -->
+    <style>
+        /* Custom animations and transitions */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Smooth scrolling for navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom gradient background */
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo/Brand -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">NA</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-gray-800">Naa anveshana Blog</h1>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">About</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <!-- Hero Image -->
+                <div class="mb-8">
+                    <img src="https://placehold.co/400x300/667eea/white?text=Naa+anveshana" 
+                         alt="Naa anveshana Channel" 
+                         class="mx-auto rounded-2xl shadow-2xl hover-lift">
+                </div>
+                
+                <!-- Hero Content -->
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Welcome to <span class="text-accent">Naa anveshana</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto leading-relaxed">
+                    Exploring the Unseen, One Journey at a Time
+                </p>
+                <p class="text-lg mb-10 text-gray-200 max-w-2xl mx-auto">
+                    Join us on incredible adventures as we uncover hidden stories, explore fascinating places, 
+                    and dive deep into the mysteries that surround us every day.
+                </p>
+                
+                <!-- Call to Action Button -->
+                <button class="bg-accent hover:bg-yellow-500 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+                    Explore Latest Posts
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area - Blog Posts -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Latest Adventures</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Discover our recent explorations and the fascinating stories behind them
+            </p>
+        </div>
+        
+        <!-- Blog Posts Grid - This will be populated by JavaScript -->
+        <div id="blog-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog posts will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-8">About Naa anveshana</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-left">
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                            Naa anveshana is a Telugu YouTube channel dedicated to exploring the unknown, 
+                            uncovering hidden stories, and sharing fascinating discoveries with our audience.
+                        </p>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                            Through detailed research and engaging storytelling, we bring you content that 
+                            satisfies your curiosity and opens your mind to new perspectives.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Join our community of explorers and embark on a journey of discovery with us!
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/500x400/7c3aed/white?text=About+Us" 
+                             alt="About Naa anveshana" 
+                             class="rounded-2xl shadow-xl hover-lift">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8">Get In Touch</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Have a story to share or a mystery to explore? We'd love to hear from you!
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:contact@naanveshana.com" 
+                   class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                    Email Us
+                </a>
+                <a href="#" 
+                   class="bg-secondary hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                    Suggest a Topic
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Brand Section -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">NA</span>
+                        </div>
+                        <h3 class="text-xl font-bold">Naa anveshana</h3>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Exploring the unseen, one journey at a time. Join us for incredible adventures and discoveries.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Media Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-red-600 hover:bg-red-700 p-3 rounded-full transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-pink-600 hover:bg-pink-700 p-3 rounded-full transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.750-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-blue-500 hover:bg-blue-600 p-3 rounded-full transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 Naa anveshana Blog. All rights reserved. | 
+                    <span class="text-accent">Exploring the Unseen, One Journey at a Time</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dynamic Content and Interactivity -->
+    <script>
+        // Blog Posts Data Array
+        // Each blog post object contains all required properties
+        const blogPosts = [
+            {
+                id: 1,
+                title: "The Mystery of Golconda Fort's Secret Tunnels",
+                author: "Naa anveshana Team",
+                date: "December 15, 2024",
+                summary: "Uncovering the hidden underground passages of Golconda Fort that have remained secret for centuries. Join us as we explore these mysterious tunnels and their historical significance.",
+                imageUrl: "https://placehold.co/400x250/1e40af/white?text=Golconda+Fort"
+            },
+            {
+                id: 2,
+                title: "Lost Temples of Telangana: A Journey Through Time",
+                author: "Naa anveshana Team",
+                date: "December 10, 2024",
+                summary: "Discovering forgotten temples scattered across Telangana, each with unique stories and architectural marvels that showcase our rich cultural heritage.",
+                imageUrl: "https://placehold.co/400x250/7c3aed/white?text=Ancient+Temples"
+            },
+            {
+                id: 3,
+                title: "The Phantom Lights of Pakhal Lake",
+                author: "Naa anveshana Team",
+                date: "December 5, 2024",
+                summary: "Investigating the mysterious lights that appear over Pakhal Lake at night. Local legends speak of supernatural phenomena, but what's the real story behind these enigmatic lights?",
+                imageUrl: "https://placehold.co/400x250/f59e0b/white?text=Pakhal+Lake"
+            },
+            {
+                id: 4,
+                title: "Hidden Waterfalls of the Eastern Ghats",
+                author: "Naa anveshana Team",
+                date: "November 28, 2024",
+                summary: "Trekking through dense forests to discover pristine waterfalls that few have seen. Experience the untouched beauty of nature's hidden gems in the Eastern Ghats.",
+                imageUrl: "https://placehold.co/400x250/10b981/white?text=Hidden+Waterfalls"
+            },
+            {
+                id: 5,
+                title: "The Legend of Bhadrakali Temple's Guardian Spirit",
+                author: "Naa anveshana Team",
+                date: "November 20, 2024",
+                summary: "Exploring the folklore surrounding Bhadrakali Temple and the guardian spirit said to protect devotees. Separating fact from fiction in this ancient tale.",
+                imageUrl: "https://placehold.co/400x250/dc2626/white?text=Bhadrakali+Temple"
+            },
+            {
+                id: 6,
+                title: "Underground Cities: The Caves of Belum",
+                author: "Naa anveshana Team",
+                date: "November 15, 2024",
+                summary: "Venturing deep into the Belum Caves to uncover their geological wonders and the secrets they hold about our region's ancient past.",
+                imageUrl: "https://placehold.co/400x250/8b5cf6/white?text=Belum+Caves"
+            }
+        ];
+
+        /**
+         * Function to create HTML for a single blog post card
+         * @param {Object} post - Blog post object containing all post data
+         * @returns {string} HTML string for the blog post card
+         */
+        function createBlogPostCard(post) {
+            return `
+                <article class="bg-white rounded-2xl shadow-lg hover-lift overflow-hidden">
+                    <!-- Post Image -->
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="${post.imageUrl}" 
+                            alt="${post.title}"
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                            loading="lazy"
+                        >
+                        <div class="absolute top-4 right-4 bg-accent text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
+                            New
+                        </div>
+                    </div>
+                    
+                    <!-- Post Content -->
+                    <div class="p-6">
+                        <!-- Post Metadata -->
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span class="font-medium">${post.author}</span>
+                            <time datetime="${post.date}">${post.date}</time>
+                        </div>
+                        
+                        <!-- Post Title -->
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 leading-tight hover:text-primary transition-colors duration-300">
+                            ${post.title}
+                        </h3>
+                        
+                        <!-- Post Summary -->
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            ${post.summary}
+                        </p>
+                        
+                        <!-- Read More Button -->
+                        <button 
+                            class="inline-flex items-center bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 hover:scale-105"
+                            onclick="readMore(${post.id})"
+                        >
+                            Read More
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+            `;
+        }
+
+        /**
+         * Function to render all blog posts to the DOM
+         * This function takes the blogPosts array and creates HTML cards for each post
+         */
+        function renderBlogPosts() {
+            // Get the container element where blog posts will be displayed
+            const container = document.getElementById('blog-posts-container');
+            
+            if (!container) {
+                console.error('Blog posts container not found!');
+                return;
+            }
+
+            // Generate HTML for all blog posts by mapping over the array
+            const blogPostsHTML = blogPosts.map(post => createBlogPostCard(post)).join('');
+            
+            // Insert the generated HTML into the container
+            container.innerHTML = blogPostsHTML;
+            
+            console.log(`Successfully rendered ${blogPosts.length} blog posts`);
+        }
+
+        /**
+         * Function to handle "Read More" button clicks
+         * @param {number} postId - The ID of the blog post to read
+         */
+        function readMore(postId) {
+            // Find the specific post by ID
+            const post = blogPosts.find(p => p.id === postId);
+            
+            if (post) {
+                // Create a simple modal or alert with post details
+                // In a real application, this would navigate to a full post page
+                alert(`Opening: "${post.title}"\n\nThis would typically navigate to the full blog post page with detailed content about ${post.title}.`);
+            } else {
+                console.error(`Post with ID ${postId} not found`);
+            }
+        }
+
+        /**
+         * Mobile menu toggle functionality
+         */
+        function initializeMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    // Toggle the mobile menu visibility
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        }
+
+        /**
+         * Smooth scrolling for navigation links
+         */
+        function initializeSmoothScrolling() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        // Smooth scroll to target section
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Close mobile menu if open
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        }
+
+        /**
+         * Initialize scroll-to-top functionality for the hero CTA button
+         */
+        function initializeHeroCTA() {
+            const ctaButton = document.querySelector('.hero-gradient button');
+            
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function() {
+                    // Scroll to the main content area
+                    const mainContent = document.querySelector('main');
+                    if (mainContent) {
+                        mainContent.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+        }
+
+        /**
+         * Add loading animation for images
+         */
+        function initializeImageLoading() {
+            const images = document.querySelectorAll('img');
+            
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                
+                // Set initial opacity for smooth loading effect
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.3s ease';
+            });
+        }
+
+        /**
+         * Initialize all functionality when the DOM is fully loaded
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Naa anveshana Blog - Initializing...');
+            
+            // Render blog posts first
+            renderBlogPosts();
+            
+            // Initialize interactive features
+            initializeMobileMenu();
+            initializeSmoothScrolling();
+            initializeHeroCTA();
+            initializeImageLoading();
+            
+            console.log('Naa anveshana Blog - Initialization complete!');
+            
+            // Log blog posts data for debugging
+            console.log('Blog posts loaded:', blogPosts);
+        });
+
+        /**
+         * Add scroll-based animations for better user experience
+         */
+        function initializeScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe blog post cards for scroll animations
+            setTimeout(() => {
+                const blogCards = document.querySelectorAll('article');
+                blogCards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                    observer.observe(card);
+                });
+            }, 100);
+        }
+
+        // Initialize scroll animations after a short delay to ensure content is rendered
+        setTimeout(initializeScrollAnimations, 200);
+    </script>
+</body>
+</html>
